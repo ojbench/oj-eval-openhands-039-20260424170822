@@ -69,12 +69,12 @@ public:
         
         // Validate indptr values
         if (indptr[0] != 0) {
-            throw std::invalid_argument("indptr[0] must be 0");
+            throw size_mismatch();
         }
         
         for (size_t i = 0; i < n; ++i) {
             if (indptr[i] > indptr[i + 1]) {
-                throw std::invalid_argument("indptr must be non-decreasing");
+                throw size_mismatch();
             }
         }
         
